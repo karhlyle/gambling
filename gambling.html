@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+<link rel="stylesheet" href="gambling.css"/> 
+<title>Gambling</title> 
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+    document.querySelector('select').onchange = function() {
+        document.querySelector('#gB').style.background = this.value;
+    }
+    });
+    let rubles = 1
+    let amount = 0
+    function gamble() { 
+        newrubes = rubles * (Math.random() * 10)
+        document.querySelector('#cash').innerHTML = newrubes
+        if (newrubes > 5) { alert("SUCCESS ayyyoooo")
+        }
+        if (newrubes < 5) { alert("AHH FUCK LIFE ")
+    }
+    amount++ 
+    balance = (newrubes/amount)
+    balance2 = (newrubes/amount) + balance
+    document.querySelector('#balance').innerHTML = balance2
+    }
+    </script>
+</head>
+<body id="gB">
+    <h1 id="cash">1</h1>
+    <p id="balance">Balance</p>
+    <button onclick="gamble()">ON LINE ALL TIME</button>
+</body>
+
+<select>
+    <option value="url(bg1.jpg)">Default</option>
+    <option value="url(bg2.jpg)">Le Begino</option>
+    <option value="url(bg3.jpg)">FIRST STRING</option>
+    <option value="url(bg4.jpg)">Fishy ;)</option>
+    <option value="url(bg5.jpg)">Magnifico!</option>
+    <option value="url(bg6.jpg)">Pussy Fingers to the Moon</option>
+
+</select>
+
+
+
+
+</html>
