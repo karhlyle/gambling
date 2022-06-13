@@ -5,23 +5,32 @@
 <title>Gambling</title> 
 <script>
     document.addEventListener('DOMContentLoaded', () => {
-    document.querySelector('select').onchange = function() {
+    document.querySelector('#balance').innerHTML = localStorage.getItem('balance')
+        document.querySelector('select').onchange = function() {
         document.querySelector('#gB').style.background = this.value;
     }
     });
     let rubles = 1
     let amount = 0
+
+    if (!localStorage.getItem('balance')) {
+        localStorage.setItem('balance', 0)
+    }
+
     function gamble() { 
+        localStorage.getItem('balance')
         newrubes = rubles * (Math.random() * 10)
         document.querySelector('#cash').innerHTML = newrubes
         if (newrubes > 5) { alert("SUCCESS ayyyoooo")
         }
         if (newrubes < 5) { alert("AHH FUCK LIFE ")
+  
     }
     amount++ 
-    balance = (newrubes/amount)
-    balance2 = (newrubes/amount) + balance
-    document.querySelector('#balance').innerHTML = balance2
+    balance += newrubes 
+    localStorage.setItem('balance', balance.innerHTML)
+    document.querySelector('#balance').innerHTML = balance
+    setInterval(gamble, 3000)
     }
     </script>
 </head>
